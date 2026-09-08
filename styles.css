@@ -1408,20 +1408,6 @@ body.intro-active {
 
 
 /* -----------------------------------------------------------
-   CORPORATE IMAGE
-   ----------------------------------------------------------- */
-
-.ce-service-image.corporate-image {
-  background: var(--forest-2);
-}
-
-.ce-service-image.corporate-image img {
-  object-fit: contain;
-  padding: 35px;
-}
-
-
-/* -----------------------------------------------------------
    HOW WE WORK
    ----------------------------------------------------------- */
 
@@ -5124,5 +5110,37 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
     .cinematic-btn {
         padding: 10px 10px;
         font-size: 0.58rem;
+    }
+}
+/* =========================================================
+   CORPORATE EVENT — FULL IMAGE VISIBLE
+   ========================================================= */
+
+.ce-service-image.corporate-image {
+    height: auto;
+    background: transparent;
+    overflow: visible;
+}
+
+.ce-service-image.corporate-image img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .ce-service-image.corporate-image {
+        height: auto;
+    }
+
+    .ce-service-image.corporate-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 }
