@@ -133,30 +133,56 @@ const fullGallery = document.querySelector(".gallery-grid");
 
 if (fullGallery) {
 
-    const galleryObserver = new IntersectionObserver(
-        (entries) => {
+    let galleryAnimated = false;
 
-            entries.forEach((entry) => {
+    function revealFullGallery() {
 
-                if (entry.isIntersecting) {
+        if (galleryAnimated) return;
 
-                    fullGallery.classList.add("gallery-loaded");
+        const rect = fullGallery.getBoundingClientRect();
+        const windowHeight =
+            window.innerHeight ||
+            document.documentElement.clientHeight;
 
-                    galleryObserver.unobserve(fullGallery);
+        // Trigger when gallery is close to entering the screen
+        if (rect.top <= windowHeight * 0.90) {
 
-                }
+            galleryAnimated = true;
 
-            });
+            fullGallery.classList.add("gallery-loaded");
 
-        },
-        {
-            threshold: 0.08
+            window.removeEventListener(
+                "scroll",
+                revealFullGallery
+            );
+
+        }
+    }
+
+
+    // Check immediately
+    revealFullGallery();
+
+
+    // Check while scrolling
+    window.addEventListener(
+        "scroll",
+        revealFullGallery,
+        { passive: true }
+    );
+
+
+    // Check again after the page and images finish loading
+    window.addEventListener(
+        "load",
+        () => {
+            setTimeout(() => {
+                revealFullGallery();
+            }, 300);
         }
     );
 
-    galleryObserver.observe(fullGallery);
 }
-
 /* =========================================
    SERVICE SCROLL REVEAL
 ========================================= */
