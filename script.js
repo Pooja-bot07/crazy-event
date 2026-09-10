@@ -335,3 +335,89 @@ document.querySelectorAll('.testimonial-stars').forEach(stars => {
 
 });
 
+/* =========================================================
+   HOME — RECENT INSTALLS
+   DIAGONAL SCROLL ANIMATION
+========================================================= */
+
+const recentInstallCards = document.querySelectorAll(
+    "#recent-installs .floating-frame"
+);
+
+if (recentInstallCards.length) {
+
+    const recentInstallObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const card = entry.target;
+                    const index = [...recentInstallCards].indexOf(card);
+
+                    let startTransform;
+
+                    /*
+                       01 ↗     02 ↖
+                       03 ↗     04 ↖
+
+                            05 ↑
+                    */
+
+                    if (index === 0 || index === 2) {
+
+                        // From bottom-left → final position
+                        startTransform =
+                            "translate(-80px, 80px)";
+
+                    } else if (index === 1 || index === 3) {
+
+                        // From bottom-right → final position
+                        startTransform =
+                            "translate(80px, 80px)";
+
+                    } else {
+
+                        // 05 from bottom → final position
+                        startTransform =
+                            "translateY(90px)";
+                    }
+
+
+                    card.animate(
+                        [
+                            {
+                                opacity: 0,
+                                transform: startTransform
+                            },
+                            {
+                                opacity: 1,
+                                transform: "translate(0, 0)"
+                            }
+                        ],
+                        {
+                            duration: 1000,
+                            easing: "cubic-bezier(.22,.61,.36,1)",
+                            fill: "both",
+                            delay: index * 120
+                        }
+                    );
+
+                    observer.unobserve(card);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    recentInstallCards.forEach(card => {
+        recentInstallObserver.observe(card);
+    });
+
+}

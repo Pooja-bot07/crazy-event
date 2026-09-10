@@ -5281,3 +5281,414 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
     }
 
 }
+/* =========================================================
+   RECENT INSTALLS — CLEAN PREMIUM GRID
+   WITH SUBTLE ANIMATION
+========================================================= */
+
+#recent-installs {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+#recent-installs .recent-installs-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 65px;
+}
+
+#recent-installs .recent-installs-heading {
+    max-width: 700px;
+}
+
+#recent-installs .recent-installs-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    opacity: 0.55;
+}
+
+#recent-installs .recent-installs-kicker::before {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: currentColor;
+}
+
+#recent-installs .recent-installs-heading h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+}
+
+#recent-installs .recent-installs-heading h2 em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+
+/* -------------------------
+   VIEW GALLERY LINK
+------------------------- */
+
+#recent-installs .recent-installs-gallery-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    padding-bottom: 8px;
+
+    color: inherit;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    transition:
+        gap 0.35s ease,
+        border-color 0.35s ease;
+}
+
+#recent-installs .recent-installs-gallery-link b {
+    font-size: 1rem;
+    font-weight: 400;
+
+    transition: transform 0.35s ease;
+}
+
+#recent-installs .recent-installs-gallery-link:hover {
+    gap: 22px;
+}
+
+#recent-installs .recent-installs-gallery-link:hover b {
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#recent-installs .floating-frames {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 55px 28px;
+
+    width: 100%;
+
+    height: auto;
+    margin-bottom: 100px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+#recent-installs .floating-frame {
+    position: relative !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    overflow: visible !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: translateY(0);
+
+    transition: transform 0.5s ease;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+#recent-installs .floating-frame-image {
+    position: relative;
+
+    width: 100% !important;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    background: var(--forest-2, #26352d);
+
+    border-radius: 2px;
+}
+
+
+/* Individual image proportions */
+
+#recent-installs .frame-wedding .floating-frame-image,
+#recent-installs .frame-baby .floating-frame-image,
+#recent-installs .frame-birthday .floating-frame-image,
+#recent-installs .frame-corporate .floating-frame-image,
+#recent-installs .frame-naming .floating-frame-image {
+    aspect-ratio: 4 / 3;
+}
+
+
+/* Image itself */
+
+#recent-installs .floating-frame-image img {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: scale(1);
+
+    transition:
+        transform 1.2s cubic-bezier(.22,.61,.36,1),
+        filter 0.8s ease;
+}
+
+
+/* Dark overlay */
+
+#recent-installs .floating-frame-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(10, 20, 15, 0);
+
+    pointer-events: none;
+
+    transition: background 0.6s ease;
+}
+
+
+/* Hover zoom */
+
+#recent-installs .floating-frame:hover
+.floating-frame-image img {
+    transform: scale(1.055);
+}
+
+#recent-installs .floating-frame:hover
+.floating-frame-image::after {
+    background: rgba(10, 20, 15, 0.12);
+}
+
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+#recent-installs .floating-frame-caption {
+    padding: 17px 2px 0;
+}
+
+#recent-installs .floating-frame-caption > div {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+#recent-installs .floating-frame-number {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+
+    opacity: 0.4;
+}
+
+#recent-installs .floating-frame-tag {
+    font-size: 0.58rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    opacity: 0.58;
+}
+
+#recent-installs .floating-frame-caption h3 {
+    margin: 0;
+
+    max-width: 500px;
+
+    font-size: 0.95rem;
+    line-height: 1.45;
+    font-weight: 500;
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.45s ease;
+}
+
+
+/* Caption moves slightly on hover */
+
+#recent-installs .floating-frame:hover
+.floating-frame-caption h3 {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   STAGGERED CARD MOTION
+========================================================= */
+
+#recent-installs .floating-frame:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+#recent-installs .floating-frame:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+#recent-installs .floating-frame:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+#recent-installs .floating-frame:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+#recent-installs .floating-frame:nth-child(5) {
+    transition-delay: 0.45s;
+}
+
+
+/* =========================================================
+   FIFTH CARD
+========================================================= */
+
+#recent-installs .frame-naming {
+    grid-column: 1 / -1;
+
+    width: 48% !important;
+
+    justify-self: center;
+}
+
+
+/* =========================================================
+   INSTAGRAM TEASER
+========================================================= */
+
+#recent-installs .instagram-teaser {
+    position: relative;
+
+    margin-top: 0;
+
+    padding-top: 50px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #recent-installs .recent-installs-head {
+        display: block;
+
+        margin-bottom: 45px;
+    }
+
+    #recent-installs .recent-installs-heading h2 {
+        font-size: clamp(2.7rem, 12vw, 4rem);
+    }
+
+    #recent-installs .recent-installs-gallery-link {
+        margin-top: 25px;
+    }
+
+
+    #recent-installs .floating-frames {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 48px;
+
+        margin-bottom: 70px;
+    }
+
+
+    #recent-installs .floating-frame,
+    #recent-installs .frame-wedding,
+    #recent-installs .frame-baby,
+    #recent-installs .frame-birthday,
+    #recent-installs .frame-corporate,
+    #recent-installs .frame-naming {
+
+        position: relative !important;
+
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+
+        grid-column: auto !important;
+
+        width: 100% !important;
+
+        justify-self: auto;
+    }
+
+
+    #recent-installs .floating-frame-image {
+        aspect-ratio: 4 / 3;
+    }
+
+
+    #recent-installs .floating-frame-caption h3 {
+        font-size: 0.88rem;
+    }
+}
