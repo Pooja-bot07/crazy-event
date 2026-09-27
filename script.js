@@ -309,31 +309,180 @@ if (designServices.length && designPreviewImage && designPreviewTitle) {
 }
 
 /* =========================================
-   TESTIMONIAL STAR RATINGS
+   TESTIMONIAL VIDEO CAROUSEL
 ========================================= */
 
-document.querySelectorAll('.testimonial-stars').forEach(stars => {
+(function () {
 
-    const rating = Math.max(
-        0,
-        Math.min(5, Number(stars.dataset.rating) || 0)
+    const slides = document.querySelectorAll(
+        ".testimonial-video-slide"
     );
 
-    let starsHTML = '';
+    const videos = document.querySelectorAll(
+        ".testimonial-video"
+    );
 
-    for (let i = 1; i <= 5; i++) {
+    const dots = document.querySelectorAll(
+        ".testimonial-dot"
+    );
 
-        if (i <= rating) {
-            starsHTML += '<span class="star filled">★</span>';
-        } else {
-            starsHTML += '<span class="star empty">★</span>';
+    const prevButton = document.querySelector(
+        ".testimonial-video-prev"
+    );
+
+    const nextButton = document.querySelector(
+        ".testimonial-video-next"
+    );
+
+    const currentNumber = document.getElementById(
+        "testimonialCurrent"
+    );
+
+
+    if (!slides.length) return;
+
+
+    let currentSlide = 0;
+
+
+    function showSlide(index) {
+
+        if (index < 0) {
+            index = slides.length - 1;
         }
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+
+        currentSlide = index;
+
+
+        slides.forEach(function (slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        dots.forEach(function (dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        if (currentNumber) {
+
+            currentNumber.textContent =
+                String(currentSlide + 1).padStart(2, "0");
+
+        }
+
+
+        videos.forEach(function (video, i) {
+
+            if (i !== currentSlide) {
+                video.pause();
+            }
+
+        });
 
     }
 
-    stars.innerHTML = starsHTML;
 
-});
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                showSlide(currentSlide - 1);
+
+            }
+        );
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                showSlide(currentSlide + 1);
+
+            }
+        );
+
+    }
+
+
+    dots.forEach(function (dot) {
+
+        dot.addEventListener(
+            "click",
+            function () {
+
+                const index =
+                    Number(dot.dataset.slide);
+
+                showSlide(index);
+
+            }
+        );
+
+    });
+
+
+    /*
+       Pause other videos when a new video starts.
+    */
+
+    videos.forEach(function (video) {
+
+        video.addEventListener(
+            "play",
+            function () {
+
+                videos.forEach(function (otherVideo) {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            }
+        );
+
+    });
+
+
+    showSlide(0);
+
+})();
+const writtenReviewTrack = document.querySelector(".written-review-track");
+
+if (writtenReviewTrack) {
+    const reviewCards = Array.from(
+        writtenReviewTrack.querySelectorAll(".written-review-card")
+    );
+
+    reviewCards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        writtenReviewTrack.appendChild(clone);
+    });
+}
 
 /* =========================================================
    HOME — RECENT INSTALLS
