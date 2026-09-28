@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pooja-bot07.github.io/crazy-event/sitemap.xml
+Sitemap: https://crazy-event.in/sitemap.xml
