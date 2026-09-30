@@ -9,8 +9,10 @@
 
     <meta
     name="description"
-    content="Explore Crazy Event's event decoration services in Pune for weddings, birthdays, baby showers, naming ceremonies and corporate events.">
+    content="Crazy Event offers event decoration in Pune for weddings, birthdays, baby showers, naming ceremonies and corporate events. Explore our decoration services and event designs.">
 
+    <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://crazy-event.in/services.html">
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -153,11 +155,10 @@
                     </h3>
 
                     <p>
-                        Soft, joyful and beautifully styled
-                        baby shower celebrations designed
-                        around your theme, colours and
-                        special moments.
-                    </p>
+    Soft, joyful and beautifully styled baby shower
+    decorations in Pune, designed around your theme,
+    colours and special moments.
+</p>
 
                     <a href="gallery.html"
                        class="ce-service-link">
@@ -205,12 +206,11 @@
                     </h3>
 
                     <p>
-                        Creative birthday setups made to
-                        match the personality, theme and
-                        energy of every celebration,
-                        from intimate parties to
-                        unforgettable milestones.
-                    </p>
+    Creative birthday decorations in Pune,
+    designed to match the personality, theme
+    and energy of every celebration, from
+    intimate parties to unforgettable milestones.
+</p>
 
                     <a href="gallery.html"
                        class="ce-service-link">
@@ -258,13 +258,11 @@
                     </h3>
 
                     <p>
-                        Elegant and meaningful decor
-                        created for naming ceremonies,
-                        blending traditional elements
-                        with a fresh and beautiful
-                        visual style.
-                    </p>
-
+    Elegant naming ceremony decorations in Pune,
+    blending traditional elements with a fresh
+    and beautiful visual style for your
+    family's special celebration.
+</p>
                     <a href="gallery.html"
                        class="ce-service-link">
 
@@ -310,13 +308,12 @@
                         Events
                     </h3>
 
-                    <p>
-                        From dreamy ceremonies to grand
-                        receptions, we create sophisticated
-                        wedding environments filled with
-                        florals, details and unforgettable
-                        atmosphere.
-                    </p>
+                   <p>
+    Wedding decorations in Pune, from dreamy
+    ceremonies to grand receptions, with
+    sophisticated styling, florals and
+    carefully planned details.
+</p>
 
                     <a href="gallery.html"
                        class="ce-service-link">
@@ -361,12 +358,11 @@
                     </h3>
 
                     <p>
-                        Professional event styling for
-                        conferences, celebrations,
-                        launches and corporate gatherings
-                        that deserve a polished and
-                        memorable setting.
-                    </p>
+    Corporate event decoration in Pune for
+    conferences, launches, celebrations and
+    professional gatherings that deserve
+    a polished and memorable setting.
+</p>
 
                     <a href="gallery.html"
                        class="ce-service-link">
@@ -479,7 +475,86 @@
 
         </section>
 
+<section class="ce-faq">
+    <div class="ce-faq-inner">
 
+        <span class="ce-eyebrow">Frequently Asked Questions</span>
+
+        <h2>
+            Event Decoration
+            <br>
+            <span>in Pune.</span>
+        </h2>
+
+        <div class="ce-faq-list">
+
+            <div class="ce-faq-item">
+                <button class="ce-faq-question" type="button">
+                    <span>What event decoration services does Crazy Event offer?</span>
+                    <span class="ce-faq-icon">+</span>
+                </button>
+
+                <div class="ce-faq-answer">
+                    <p>
+                        Crazy Event provides decoration and event styling
+                        for weddings, birthdays, baby showers, naming
+                        ceremonies and corporate events in Pune.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="ce-faq-item">
+                <button class="ce-faq-question" type="button">
+                    <span>Does Crazy Event provide event decoration in Pune?</span>
+                    <span class="ce-faq-icon">+</span>
+                </button>
+
+                <div class="ce-faq-answer">
+                    <p>
+                        Yes. Crazy Event provides event decoration and
+                        styling services for celebrations and events
+                        across Pune.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="ce-faq-item">
+                <button class="ce-faq-question" type="button">
+                    <span>What types of events can Crazy Event decorate?</span>
+                    <span class="ce-faq-icon">+</span>
+                </button>
+
+                <div class="ce-faq-answer">
+                    <p>
+                        Crazy Event decorates weddings, birthday
+                        celebrations, baby showers, naming ceremonies
+                        and corporate events.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="ce-faq-item">
+                <button class="ce-faq-question" type="button">
+                    <span>How can I contact Crazy Event?</span>
+                    <span class="ce-faq-icon">+</span>
+                </button>
+
+                <div class="ce-faq-answer">
+                    <p>
+                        You can contact Crazy Event through the contact
+                        page, WhatsApp or phone to discuss your event
+                        and decoration requirements.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
         <!-- =========================================
              CTA
@@ -778,6 +853,31 @@
     </div>
 </footer>
 <script src="script.js"></script>
+<script>
+    const faqItems = document.querySelectorAll(".ce-faq-item");
+
+    faqItems.forEach((item) => {
+
+        const question = item.querySelector(".ce-faq-question");
+
+        question.addEventListener("click", () => {
+
+            const isActive = item.classList.contains("active");
+
+            // Close all FAQ items
+            faqItems.forEach((faqItem) => {
+                faqItem.classList.remove("active");
+            });
+
+            // Open clicked item if it was previously closed
+            if (!isActive) {
+                item.classList.add("active");
+            }
+
+        });
+
+    });
+</script>
 </body>
 
 </html>
