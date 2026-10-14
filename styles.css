@@ -1070,6 +1070,10 @@ section {
   animation:
     introTitle 1.2s cubic-bezier(.22,.61,.36,1) forwards;
   animation-delay: 0.7s;
+  white-space: nowrap;
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .intro-line {
@@ -1143,8 +1147,12 @@ body.intro-active {
 @media (max-width: 600px) {
 
   .intro-title {
-    font-size: clamp(2.4rem, 13vw, 4rem);
-    letter-spacing: 0.06em;
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    letter-spacing: 0.04em;
+      white-space: nowrap;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
   }
 
   .intro-small {
@@ -2073,11 +2081,11 @@ body.intro-active {
 
 .cinematic-hero h1 {
     max-width: 850px;
-
     margin: 0;
+    box-sizing: border-box;
 
     font-family: var(--font-display);
-font-size: clamp(3rem, 5.5vw, 5.4rem);
+    font-size: clamp(3rem, 5.5vw, 5.4rem);
     font-weight: 500;
 
     line-height: 0.94;
@@ -2802,8 +2810,8 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
 @media (max-width: 600px) {
 
     .approach-section {
-        padding-top: 70px;
-        padding-bottom: 70px;
+        padding-top: 45px;
+        padding-bottom: 20px;
     }
 
 
@@ -2824,10 +2832,10 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
 
 
     .approach-grid {
-        padding-top: 45px;
-        padding-bottom: 45px;
+        padding-top: 25px;
+        padding-bottom: 15px;
 
-        gap: 32px;
+        gap: 24px;
     }
 
 
@@ -3918,12 +3926,12 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
 @media (max-width: 600px) {
 
     .design-section {
-        padding: 75px 0 85px;
+      padding: 50px 0 85px;
     }
 
     .design-header {
         display: block;
-        margin-bottom: 45px;
+        margin-bottom: 30px;
     }
 
     .design-kicker {
@@ -5956,5 +5964,91 @@ font-size: clamp(3rem, 5.5vw, 5.4rem);
 
     .ce-faq-item.active .ce-faq-answer p {
         padding-bottom: 25px;
+    }
+}
+
+/* ================================
+   DEVELOPER CREDIT
+================================ */
+
+.footer-credit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    padding: 27px 0 8px;
+    text-align: center;
+}
+
+.footer-credit-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    line-height: 1.4;
+     color: #9A743B;
+    opacity: 1;
+}
+
+.footer-credit-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+     color: #263B32;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit-name {
+      color: #9A743B;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.footer-credit-arrow {
+    display: inline-block;
+    color: #9A743B;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.footer-credit-link:hover {
+    color: #15271F;
+
+}
+
+.footer-credit-link:hover .footer-credit-name {
+     color: #15271F;
+}
+
+.footer-credit-link:hover .footer-credit-arrow {
+    transform: translate(3px, -3px);
+}
+
+.footer-credit-link:focus-visible {
+    outline: 1px solid var(--brass);
+    outline-offset: 5px;
+    border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+    .footer-credit {
+        padding-top: 23px;
+        gap: 8px;
+    }
+
+    .footer-credit-label {
+        font-size: 8px;
+        letter-spacing: 0.2em;
+    }
+
+    .footer-credit-link {
+        font-size: 12px;
     }
 }
